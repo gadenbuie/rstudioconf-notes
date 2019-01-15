@@ -1,0 +1,42 @@
+---
+title: "Tidyverse Train the Trainer"
+author: "Day 1"
+date: "1/15/2019"
+output: github_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## My Goals
+
+1. Two things I hope to get out of this workshop
+    - Techniques for structuring and teaching programming to others
+    - How to teach prgramming, interactively
+
+1. A trick of the trade
+
+## Notes
+
+- check understanding/awareness: "What would you type into Stack Overflow to get the answer to this questions?"
+
+- *Directed learning* 
+  - flipped classroom, pre-determined path
+- *Guided discovery* 
+  - problem based learning, socratic method
+- *Exploratory learning* 
+  - teacher provides resources and promt then gets out of the way, montessori method, unschooling
+
+- Not everyone is an auto-didact: **You Are Not Your Learners**
+
+## Levels of Learning
+
+6. Create
+5. Evaluate
+4. Analyze
+3. Apply
+2. Understand
+1. Remember
+0. Be aware of
+
