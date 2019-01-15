@@ -40,3 +40,58 @@ knitr::opts_chunk$set(echo = TRUE)
 1. Remember
 0. Be aware of
 
+## How to get good at anything
+
+1. Get feedback
+1. Get feedback on feedback
+1. Feedback loop
+
+
+- reflective practice >> 10,000 hours of practice
+
+- Elizabeth Green: _Building A+ Better Teacher_ How teaching works
+
+- feedback on feedback scales quickly, within ~3 rounds
+
+
+## Round of teaching: critique of video
+
+Round 1
+
+- distracting notifications
+- meaningless examples
+- sitting, non dynamic, impossible to see
+- hiding behind the screen
+- lack of engagement with students, no feedback
+
+Round 2
+
+- `-` narriting during typing actions, pausing at critical moments
+- `+` stopping to explain the error
+- `+` stopping to explain new visual representation when it occurrs
+- `-` involve students in interaction around filenames
+- `+` screen looks similar to the appearance of the students' screens
+- `+` explaining the use of shortcut keys (e.g. tab completion or up arrow)
+- `+` Use of humor
+- `+` User friendly
+
+In the top 3 feedback items for workshops: *good to see presenters make mistakes*
+
+## More Notes
+
+Be a champion teacher - Lemov
+
+Who are you when you're yourself turned up to 11
+
+- Greg Wilson: heavy metal guitarist teacher
+- vs. acoustic guitar at the coffee shop
+- vs. story telling
+- vs. best friend sharing new favorite band
+
+Review examples and have class evaluate with feedback, record the feedback, then use the feedback to create a grading rubric that is later used to evaluate later examples as a group.
+Can seed the group-evaluated examples with pre-wrriten examples that illustrate key conecpts.
+
+"I'm sorry I'm going to have to ask you to shorten your question."
+
+Get groups to work together and collaborate in the class to later continue learning after workshop/class _Wenger "Communities of practice"_
+
