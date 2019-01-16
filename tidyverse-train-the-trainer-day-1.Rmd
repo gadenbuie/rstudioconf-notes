@@ -95,3 +95,32 @@ Can seed the group-evaluated examples with pre-wrriten examples that illustrate 
 
 Get groups to work together and collaborate in the class to later continue learning after workshop/class _Wenger "Communities of practice"_
 
+---
+
+## Afternoon
+
+Books
+
+- _Small lessons_ -- when you don't have a ton of time, small bits of theory to use
+- _The discussion book_ -- Getting people talking and discussing
+- <http://www.learningscientists.org/> -- six methods, backed by research, to improve and enhance learning
+- _The Sense of Style_ -- thoughtful writing, Steven Pinker
+- _Enhancing Adult Motivation to Learn_
+- _Cheating Lessons_
+
+Motivation
+
+Intrinsic vs. Extrinsic
+
+- Motivators
+  - Self Efficacy
+  - Utility
+  - Community
+- Demotivators
+  - Unpredictability (learned helplessness)
+  - Unfairness
+  - Indifference
+  
+Juha Sorva - Mistakes students make while programming
+
+Anticipate learner misconceptions: search StackOverflow for common questions about the topic you'll be teaching.
