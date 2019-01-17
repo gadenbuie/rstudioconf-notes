@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>tidyr: separate</title>
+    <meta charset="utf-8">
+    <meta name="date" content="2019-01-16" />
+    <link rel="stylesheet" href="moffitt-xaringan.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: bottom, left, title-slide
+
+# tidyr: separate
+## Tidyverse: Train the Trainer
+### 2019-01-16
+
+---
+
+background-image: url(messy-cupboard.jpg)
+background-size: cover
+
+
+
+---
+background-image: url(organized-cupboard.jpg)
+background-size: cover
+
+---
+
+# `tidyr` is part of the tidyverse
+
+
+```r
+library(tidyverse)
+```
+
+```
+## ── Attaching packages ─────────────────────────────────────────── tidyverse 1.2.1 ──
+```
+
+```
+## ✔ ggplot2 3.1.0     ✔ purrr   0.2.5
+## ✔ tibble  2.0.1     ✔ dplyr   0.7.8
+## ✔ tidyr   0.8.2     ✔ stringr 1.3.1
+## ✔ readr   1.3.1     ✔ forcats 0.3.0
+```
+
+```
+## ── Conflicts ────────────────────────────────────────────── tidyverse_conflicts() ──
+## ✖ dplyr::filter() masks stats::filter()
+## ✖ dplyr::lag()    masks stats::lag()
+```
+
+---
+layout: true
+## Stars Wars
+---
+
+Run the code chunk I magically entered into your console.
+
+
+
+You now &amp;#x1F52E; have a table called `starswars`
+
+
+```r
+starswars
+```
+
+```
+## # A tibble: 5 x 3
+##   name          hair_eyes     films                                        
+##   &lt;chr&gt;         &lt;chr&gt;         &lt;chr&gt;                                        
+## 1 Luke Skywalk… blond;blue    Revenge of the Sith;Return of the Jedi;The E…
+## 2 Darth Vader   none;yellow   Revenge of the Sith;Return of the Jedi;The E…
+## 3 Leia Organa   brown;brown   Revenge of the Sith;Return of the Jedi;The E…
+## 4 Owen Lars     brown, grey;… Attack of the Clones;Revenge of the Sith;A N…
+## 5 Beru Whitesu… brown;blue    Attack of the Clones;Revenge of the Sith;A N…
+```
+
+---
+
+Notice that both `hair_eyes` and `films` are "overflowing".
+
+--
+
+- The `hair_eyes` column contains two separate concetps: hair color and eye color.
+
+- The `films` column contains multiple films in a single cell.
+
+```r
+&lt;separate&gt;(data, &lt;column&gt;, &lt;?into&gt;, sep = "&lt;separator&gt;")
+```
+
+---
+layout: false
+
+
+```r
+separate_rows(starswars, films, sep = ";")
+```
+
+```
+## # A tibble: 20 x 3
+##    name               hair_eyes        films                  
+##    &lt;chr&gt;              &lt;chr&gt;            &lt;chr&gt;                  
+##  1 Luke Skywalker     blond;blue       Revenge of the Sith    
+##  2 Luke Skywalker     blond;blue       Return of the Jedi     
+##  3 Luke Skywalker     blond;blue       The Empire Strikes Back
+##  4 Luke Skywalker     blond;blue       A New Hope             
+##  5 Luke Skywalker     blond;blue       The Force Awakens      
+##  6 Darth Vader        none;yellow      Revenge of the Sith    
+##  7 Darth Vader        none;yellow      Return of the Jedi     
+##  8 Darth Vader        none;yellow      The Empire Strikes Back
+##  9 Darth Vader        none;yellow      A New Hope             
+## 10 Leia Organa        brown;brown      Revenge of the Sith    
+## 11 Leia Organa        brown;brown      Return of the Jedi     
+## 12 Leia Organa        brown;brown      The Empire Strikes Back
+## 13 Leia Organa        brown;brown      A New Hope             
+## 14 Leia Organa        brown;brown      The Force Awakens      
+## 15 Owen Lars          brown, grey;blue Attack of the Clones   
+## 16 Owen Lars          brown, grey;blue Revenge of the Sith    
+## 17 Owen Lars          brown, grey;blue A New Hope             
+## 18 Beru Whitesun lars brown;blue       Attack of the Clones   
+## 19 Beru Whitesun lars brown;blue       Revenge of the Sith    
+## 20 Beru Whitesun lars brown;blue       A New Hope
+```
+
+---
+
+
+```r
+separate(starswars, hair_eyes, into = c("hair", "eyes"), sep = ";")
+```
+
+```
+## # A tibble: 5 x 4
+##   name          hair      eyes  films                                      
+##   &lt;chr&gt;         &lt;chr&gt;     &lt;chr&gt; &lt;chr&gt;                                      
+## 1 Luke Skywalk… blond     blue  Revenge of the Sith;Return of the Jedi;The…
+## 2 Darth Vader   none      yell… Revenge of the Sith;Return of the Jedi;The…
+## 3 Leia Organa   brown     brown Revenge of the Sith;Return of the Jedi;The…
+## 4 Owen Lars     brown, g… blue  Attack of the Clones;Revenge of the Sith;A…
+## 5 Beru Whitesu… brown     blue  Attack of the Clones;Revenge of the Sith;A…
+```
+
+---
+## How would you?
+
+Change the name of the columns where hair color and eye color were stored to `hair_color` and `eye_color`.
+
+--
+
+Re-unite hair color and eye color, separated by `/` instead of `,`.
+
+--
+
+
+```r
+starswars %&gt;% 
+  separate(hair_eyes, into = c("hair", "eyes"), sep = ";") %&gt;% 
+  unite(hair_eyes, hair, eyes, sep = "/")
+```
+
+```
+## # A tibble: 5 x 3
+##   name          hair_eyes     films                                        
+##   &lt;chr&gt;         &lt;chr&gt;         &lt;chr&gt;                                        
+## 1 Luke Skywalk… blond/blue    Revenge of the Sith;Return of the Jedi;The E…
+## 2 Darth Vader   none/yellow   Revenge of the Sith;Return of the Jedi;The E…
+## 3 Leia Organa   brown/brown   Revenge of the Sith;Return of the Jedi;The E…
+## 4 Owen Lars     brown, grey/… Attack of the Clones;Revenge of the Sith;A N…
+## 5 Beru Whitesu… brown/blue    Attack of the Clones;Revenge of the Sith;A N…
+```
+    </textarea>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"slideNumberFormat": "%current%",
+"highlightStyle": "github",
+"highlightLines": true,
+"ratio": "16:9",
+"countIncrementalSlides": true
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function() {
+  var d = document, s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})();</script>
+
+<script>
+(function() {
+  var i, text, code, codes = document.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+})();
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>

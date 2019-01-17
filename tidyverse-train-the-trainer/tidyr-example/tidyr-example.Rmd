@@ -1,0 +1,103 @@
+---
+title: "tidyr: separate"
+subtitle: "Tidyverse: Train the Trainer"
+date: '`r Sys.Date()`'
+output:
+  xaringan::moon_reader:
+    lib_dir: libs
+    css: moffitt-xaringan.css
+    nature:
+      titleSlideClass: ["bottom", "left"]
+      slideNumberFormat: "%current%"
+      highlightStyle: github
+      highlightLines: true
+      ratio: "16:9"
+      countIncrementalSlides: true
+---
+background-image: url(messy-cupboard.jpg)
+background-size: cover
+
+```{r setup, include=FALSE}
+options(htmltools.dir.version = FALSE)
+```
+
+---
+background-image: url(organized-cupboard.jpg)
+background-size: cover
+
+---
+
+# `tidyr` is part of the tidyverse
+
+```{r}
+library(tidyverse)
+```
+
+---
+layout: true
+## Stars Wars
+---
+
+Run the code chunk I magically entered into your console.
+
+```{r, include=FALSE}
+starswars <- 
+  starwars %>% 
+  mutate(
+    hair_eyes = paste(hair_color, eye_color, sep = ";"), 
+    films = map_chr(films, paste, collapse = ";")
+  ) %>% 
+  filter(!is.na(hair_color)) %>% 
+  select(1, hair_eyes, films) %>% 
+  slice(1:5)
+```
+
+You now &#x1F52E; have a table called `starswars`
+
+```{r}
+starswars
+```
+
+---
+
+Notice that both `hair_eyes` and `films` are "overflowing".
+
+--
+
+- The `hair_eyes` column contains two separate concetps: hair color and eye color.
+
+- The `films` column contains multiple films in a single cell.
+
+```r
+<separate>(data, <column>, <?into>, sep = "<separator>")
+```
+
+---
+layout: false
+
+```{r}
+separate_rows(starswars, films, sep = ";")
+```
+
+---
+
+```{r}
+separate(starswars, hair_eyes, into = c("hair", "eyes"), sep = ";")
+```
+
+---
+## How would you?
+
+Change the name of the columns where hair color and eye color were stored to `hair_color` and `eye_color`.
+
+--
+
+Re-unite hair color and eye color, separated by `/` instead of `,`.
+
+--
+
+```{r}
+starswars %>% 
+  separate(hair_eyes, into = c("hair", "eyes"), sep = ";") %>% 
+  unite(hair_eyes, hair, eyes, sep = "/")
+```

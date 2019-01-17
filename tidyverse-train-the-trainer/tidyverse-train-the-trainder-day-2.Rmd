@@ -1,0 +1,119 @@
+---
+title: "Tidyverse Train the Trainer"
+author: "Day 2"
+date: "1/16/2019"
+output: github_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+## Notes
+
+- [Make it Stick: Science of Succesful Learning](https://www.amazon.com/Make-Stick-Science-Successful-Learning/dp/0674729013)
+- Teaching `readr` later in the day gives a buffer section. It's someting that can be dropped as a "self-contained" unit, or if on time can be explained. Several people in the class discussed that it can be distracting to show people how to import data because they take off from there. 
+- Instead, starting off by writing code can be an excellent introduction. copy/paste, run code, then start modifying the code. Gets students "coding" immediately.
+
+## Workshop Outlines
+
+1. Two Day Workshop
+  - Day 1
+    - Import & Intro
+    - Visualize
+    - Transform Part 1
+    - Transform Part 2 and Output
+  - Day 2
+    - Review (import %>% transform %>% visualize)
+    - Tidy
+    - Scripts, workflow
+    - Project
+
+
+## Mental Models
+
+- Tidy data
+  - Bento box
+  - pick and choose lunch menu
+  
+
+## Serparate and Separate Rows
+
+- building on the idea of "tidy" data: one unit of observation per cell
+- sometimes cells are overflowing with data, imagine an oveflowing cupboard
+- what you want in the end are groups of like things: cups in one place, plates in another
+- `separate()` and `separate_row()` are like adding cupboards or adding shelves
+- You use `separate()` when you need new cupboard (move plates out of the cup cupboard), `separate_row()` when you need more shelves (unstack cups)
+- Both functions have the same form...
+- by default the separation operates on anything that isn't a letter or number
+- but you can change this as well
+
+## ADEPT
+
+- Analogy
+- Diagram
+- Example
+- Plain english
+- Technical definition
+
+## Excercises
+
+- Start building exercises early in the preparation process
+- Put together useful data sets
+- scaffolding: choose a level of difficulty that matches the learner's progress
+  - reading code that's disorganized and comment on reason
+
+## My `tidyr` learning example
+
+`tidyr` is part of the tidyverse
+
+```{r}
+library(tidyverse)
+```
+
+Run this code chunk below. (Don't look inside, just run it.)
+
+```{r}
+starswars <- 
+  starwars %>% 
+  mutate(
+    hair_eyes = paste(hair_color, eye_color, sep = ";"), 
+    films = map_chr(films, paste, collapse = ";")
+  ) %>% 
+  filter(!is.na(hair_color)) %>% 
+  select(1, hair_eyes, films) %>% 
+  slice(1:5)
+```
+
+You now have a table called `starswars`
+
+```{r}
+starswars
+```
+
+Notice that both `hair_eyes` and `films` are "overflowing".
+The `hair_eyes` column contains two separate concetps: hair color and eye color.
+The `films` column contains multiple films in a single cell.
+
+```r
+<separate>(data, <column>, <?into>, sep = "<separator>")
+```
+
+```{r}
+separate_rows(starswars, films, sep = ";")
+```
+
+```{r}
+separate(starswars, hair_eyes, into = c("hair", "eyes"), sep = ";")
+```
+
+Change the name of the columns where hair color and eye color were stored to `hair_color` and `eye_color`.
+
+Re-unite hair color and eye color, separated by `/` instead of `,`.
+
+```{r}
+starswars %>% 
+  separate(hair_eyes, into = c("hair", "eyes"), sep = ";") %>% 
+  unite(hair_eyes, hair, eyes, sep = "/")
+```
