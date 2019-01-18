@@ -1,4 +1,4 @@
-rstudio::conf(“notes”, “day 1”)
+rstudio::conf(“notes”, day = 1)
 ================
 
 ## Keynote

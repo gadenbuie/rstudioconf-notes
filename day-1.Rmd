@@ -1,5 +1,5 @@
 ---
-title: "rstudio::conf(\"notes\", \"day 1\")"
+title: "rstudio::conf(\"notes\", day = 1)"
 output: github_document
 ---
 
