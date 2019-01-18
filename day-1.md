@@ -89,3 +89,54 @@ two paths for getting r into organizations
         much further beyond
           - CI/CD, staging servers, automated testing, security, dev
             ops, release management, containers, etc.
+
+-----
+
+## R + ACLU
+
+What data we collect reflects our values and our ideals
+
+## Emily Robinson
+
+### `funneljoin()`
+
+  - What are all the courses people started after visting the ome page
+    for the first time?
+
+  - What percent of people saw the pricing page for the first time and
+    then subscribed?
+
+  - What percent of people saw the pricing page and then subscribed
+    within four days
+
+Many funnel types - supports dplyr joins, remote tables, etc.
+
+## Introducing MLflow for R
+
+MLflow is an open source platform fo rthe macine learning lifecycle
+(databricks – rstudio provides R interface)
+
+  - Keep track of what you did
+  - Replicating your results
+  - Bridging the gap to production
+
+## Carpentries
+
+How do we bring data to people? How do we bring compute to data?
+
+Why data? “Data becomes a tool of profound social change or a weapon of
+political warfare – depending on whose hands it is in” - Yeshimabeit
+@data4blacklives
+
+Carpentries: software, data, library
+
+Growth mindest using inclusive pedagogy, the 4 A:s
+
+  - Accessible
+  - Approachable
+  - Aligned
+  - Active
+
+## Spatial Data Science
+
+`sf` is for spatial geometry, `stars` for vector and raster data cubes
