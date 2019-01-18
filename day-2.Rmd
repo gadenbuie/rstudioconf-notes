@@ -1,0 +1,38 @@
+---
+title: "rstudio::conf(\"notes\", day = 2)"
+output: github_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, eval = FALSE)
+```
+
+## Keynote - Explicit Direct Instruction in Programming Education @felienne
+
+- How to teach programming (and other things)
+- "Everyone should learn programming"
+- There is no wall between "users" and "prgrammers"
+- Skill progression demonstrated by uesrs in Scratch: Scaffid & Chambers
+- Sound matters: "I have a tear ... in my pants" (you have to go back and re-read "tear" in the correct way)
+- Coding lacks "fights", i.e. pedagogical debates
+  - e.g. _phonics_ vs _whole language_
+  - or e.g. "The Math Wars": memorization vs. exploration and problem solving
+- "Technology is covert philosphy"
+- Whiy minimal guidance does not work - Kirschner
+- The use of worked examples for problem solving - Sweller & Cooper
+
+How to teach programming
+
+- Vocalize syntax
+- Explicit reading strategies
+  - In reading: 
+    - skim pictures, 
+    - read first sentences, 
+    - preview text before reading in detail, etc.
+  - In code:
+    - Skim methods
+    - Collapse code chunks
+    - read function signatures
+- Assessment and formative feedback
+
+Motivation leads to skill (virtuous cycle)
